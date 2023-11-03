@@ -20,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     }
 
     // Validazione del nome
-    if(empty($_POST["nome"])) 
+    if(!empty($_POST["nome"])) 
     {
         $nome = test_input($_POST["nome"]);
         // Verifica se il nome contiene solo lettere e spazi
@@ -28,6 +28,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         {
             $erroreNome = "Il nome può contenere solo lettere e spazi";
         }
+    } else {
+        $erroreNome = "Il nome è obbligatorio";
     }
 
     // Validazione del cognome
